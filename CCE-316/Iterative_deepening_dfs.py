@@ -15,8 +15,13 @@ def dfs_limited(tree, start,limit, visited = None):
     if start not in visited:
         visited.append(start)
         print(start, end=" ")
-
     for node in tree[start]:
         dfs_limited(tree, node,limit-1, visited)
 
-dfs_limited(tree, 'A', 3)
+def iterative_deepening(tree, start, max_limit):
+    for i in range(max_limit):
+        print(f"Iteration {i+1}: ", end= "")
+        dfs_limited(tree, start, i+1)
+        print()
+
+iterative_deepening(tree, 'A', 4)

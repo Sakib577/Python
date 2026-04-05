@@ -8,7 +8,7 @@ tree = {
 }
 
 def dfs(tree, start, visited = None):
-    if visited==None:
+    if visited is None:
         visited=[]
     if start not in visited:
         visited.append(start)
