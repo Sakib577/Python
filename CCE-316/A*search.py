@@ -33,7 +33,7 @@ H = {
 
 from heapq import heappop, heappush
 
-def gbfs(graph, heuristic, start, end):
+def astar(graph, heuristic, start, end):
     frontier = []
     heappush(frontier, (heuristic[start], 0, start, [start] )) # estimated_cost_to_reach_end,path_cost, node, path_list
     best_path = {start: 0}
@@ -48,6 +48,6 @@ def gbfs(graph, heuristic, start, end):
                 best_path[neighbor] = updated_cost
                 heappush(frontier, (updated_cost, path_cost+neighbor_cost, neighbor, path_list+[neighbor]))
 
-cost , path = gbfs(G, H, "Arad", "Bucharest")
+cost , path = astar(G, H, "Arad", "Bucharest")
 print("Path: ", " -> " .join(path))
 print("Cost: ", cost)
