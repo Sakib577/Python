@@ -36,7 +36,7 @@ from heapq import heappop, heappush
 def astar(graph, heuristic, start, end):
     frontier = []
     heappush(frontier, (heuristic[start], 0, start, [start] )) # estimated_cost_to_reach_end,path_cost, node, path_list
-    best_path = {start: 0}
+    best_path = {start: heuristic[start]}
 
     while frontier:
         estimated_cost, path_cost, node, path_list = heappop(frontier)
